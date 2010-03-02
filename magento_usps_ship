@@ -1,12 +1,26 @@
 // ==UserScript==
 // @name          magento_usps_ship
 // @namespace     http://mythic.tv
-// @description	  Passes shipping address from Magento's order ship page to USPS.com's Click-n-Ship.  You need not be logged in to Click-n-Ship already.  Tell Greasemonkey to apply this script to URLs matching *sales_order_shipment* to make it work.  Limitations: 1) You do need a Click-n-Ship account from usps.com; 2) It's hardcoded to ship from the same zipcode as your Click-n-Ship profile, because that's what I do 99% of the time, but you can change this manually in the Click-n-Ship page; 3) The script disables the Magento shipping page for security reasons because it loads in after the main content comes through https.  Your customer's data is still secure, as it was transmitted over https before this script was added to the page.  You will need to disable Greasemonkey and reload the Magento shipping page in order to process the shipment within Magento.
+// @description	  Passes shipping address from Magento's order ship page to USPS.com's Click-n-Ship.
 // @author        Bob Igo ( bob@mythic.tv )
 // @homepage      http://mythic.tv
 // @include       *
 // ==/UserScript==
 
+/*
+---
+IMPORTANT information:
+---
+
+You need not be logged in to Click-n-Ship already.
+
+Tell Greasemonkey to apply this script to URLs matching *sales_order_shipment* to make it work.
+
+Limitations:
+ 1) You do need a Click-n-Ship account from usps.com
+ 2) It's hardcoded to ship from the same zipcode as your Click-n-Ship profile, because that's what I do 99% of the time, but you can change this manually in the Click-n-Ship page
+ 3) The script disables the Magento shipping page for security reasons because it loads in after the main content comes through https.  Your customer's data is still secure, as it was transmitted over https before this script was added to the page.  You will need to disable Greasemonkey and reload the Magento shipping page in order to process the shipment within Magento.
+*/
 
 /*
   This top section accomplishes the Greasemonkey/jQuery merging.
